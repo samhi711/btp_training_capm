@@ -1,0 +1,48 @@
+GET http://localhost:4004/CatalogService/
+
+###Read Service metadata
+GET http://localhost:4004/CatalogService/$metadata
+
+###Read top 2 employees
+GET http://localhost:4004/CatalogService/EmployeeSet?$top=2
+
+###Read Purchase orders
+GET http://localhost:4004/CatalogService/POs?$top=2&expand=Items,PARTNER_GUID
+
+###Create new employee
+POST http://localhost:4004/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst": "Samhitha",
+    "nameMiddle": null,
+    "nameLast": "Atyam",
+    "nameInitials": null,
+    "sex": "F",
+    "language": "E",
+    "phoneNumber": "+91 7909097878",
+    "email": "samhitha.gj@gmail.com",
+    "loginName": "samhi67",
+    //Currency: Currency;
+    "accountNumber": "138398498",
+    "bankName": "HDFC Bank"
+}
+
+
+###Read Single Employee
+GET http://localhost:4004/CatalogService/EmployeeSet/e781a2e3-1998-4de4-8dd0-9d204d401785
+
+###Update the salary for the employee
+//PUT http://localhost:4004/CatalogService/EmployeeSet/e781a2e3-1998-4de4-8dd0-9d204d401785
+PATCH http://localhost:4004/CatalogService/EmployeeSet/6e94cc74-0f7d-466c-91a9-addd43d0b584
+Content-Type: application/json
+
+{
+    
+    "salaryAmount": "10000000.99",
+    "Currency_code": "INR"
+    
+}
+
+###gET Single PO - Old syntax works as its not uuid type
+GET http://localhost:4004/CatalogService/POs('cbe545a9-54a1-425c-9a55-192f9b4fc5b8')

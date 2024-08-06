@@ -77,7 +77,7 @@ entity product {
     DIM_UNIT: String(2);
 }
 
-entity employee: cuid, temporal {
+entity employee: cuid {
     nameFirst: String(40);
     nameMiddle: String(40);
     nameLast: String(40);
@@ -87,10 +87,10 @@ entity employee: cuid, temporal {
     phoneNumber: common.phoneNumber;
     email: String(32);
     loginName: String(12);
-    //Currency: Currency;
+    Currency: Currency;
     salaryAmount: common.AmountT;
     accountNumber: String(16);
-    banId: String(16);
+    banId: String(20);
     bankName: String(64);
 }
 
